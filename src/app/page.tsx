@@ -35,47 +35,62 @@ export default function Presentation() {
   const getThemeForSlide = (s: SlideData) => {
     const title = s.title.toUpperCase();
     const category = s.category?.toUpperCase() || '';
-    if (title.includes('VISÃO') || category.includes('VISÃO')) return { primary: '#00D2FF', glow: 'rgba(0, 210, 255, 0.15)', bg: 'bg-[#000d12]' };
-    if (title.includes('AUDIÇÃO') || category.includes('AUDIÇÃO')) return { primary: '#FFB300', glow: 'rgba(255, 179, 0, 0.15)', bg: 'bg-[#0d0a00]' };
-    if (title.includes('OLFACTO') || category.includes('OLFACTO')) return { primary: '#4CAF50', glow: 'rgba(76, 175, 80, 0.15)', bg: 'bg-[#050d06]' };
-    if (title.includes('TACTO') || category.includes('TACTO')) return { primary: '#E0E0E0', glow: 'rgba(224, 224, 224, 0.15)', bg: 'bg-[#121212]' };
-    if (title.includes('PALADAR') || category.includes('PALADAR')) return { primary: '#FF1744', glow: 'rgba(255, 23, 68, 0.15)', bg: 'bg-[#120002]' };
-    return { primary: '#C5A059', glow: 'rgba(197, 160, 89, 0.15)', bg: 'bg-zinc-950' };
+    if (title.includes('VISÃO') || category.includes('VISÃO')) return { primary: '#00D2FF', border: '#0070F3', glow: 'rgba(0, 210, 255, 0.15)', bg: 'bg-[#000d12]' };
+    if (title.includes('AUDIÇÃO') || category.includes('AUDIÇÃO')) return { primary: '#FFB300', border: '#B45309', glow: 'rgba(255, 179, 0, 0.15)', bg: 'bg-[#0d0a00]' };
+    if (title.includes('OLFACTO') || category.includes('OLFACTO')) return { primary: '#4CAF50', border: '#15803D', glow: 'rgba(76, 175, 80, 0.15)', bg: 'bg-[#050d06]' };
+    if (title.includes('TACTO') || category.includes('TACTO')) return { primary: '#E0E0E0', border: '#3F3F46', glow: 'rgba(224, 224, 224, 0.15)', bg: 'bg-[#121212]' };
+    if (title.includes('PALADAR') || category.includes('PALADAR')) return { primary: '#FF1744', border: '#B91C1C', glow: 'rgba(255, 23, 68, 0.15)', bg: 'bg-[#120002]' };
+    return { primary: '#F97316', border: '#C2410C', glow: 'rgba(249, 115, 22, 0.1)', bg: 'bg-zinc-950' };
   };
 
   const currentTheme = getThemeForSlide(slides[currentSlide]);
+  const isCover = slides[currentSlide].type === 'cover';
 
   return (
     <main className={`h-screen w-full ${currentTheme.bg} transition-colors duration-1000 overflow-hidden flex flex-col relative text-white selection:bg-brand-gold selection:text-black`}>
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
       
-      <motion.div animate={{ backgroundColor: currentTheme.glow, opacity: isFocused ? 0 : 1 }} className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full blur-[80px] md:blur-[150px] transition-all duration-1000" />
-      <motion.div animate={{ backgroundColor: currentTheme.glow, opacity: isFocused ? 0 : 0.5 }} className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full blur-[80px] md:blur-[150px] transition-all duration-1000" />
+      <AnimatePresence>
+        {!isCover && !isFocused && (
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="fixed top-6 left-10 z-[100] flex items-center gap-4">
+            <img src="assets/iscim-transparent-logo.png" alt="ISCIM Logo" className="h-10 md:h-14 w-auto object-contain brightness-0 invert" />
+            <div className="h-10 w-px bg-white/20 hidden md:block" />
+            <div className="hidden md:block">
+              <p className="text-[9px] font-black uppercase tracking-[0.2em] leading-none text-white">Instituto Superior de</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.2em] leading-tight text-white">Comunicação e Imagem</p>
+              <p className="text-[8px] font-bold text-zinc-500 mt-1 uppercase tracking-widest">Moçambique</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <motion.div animate={{ backgroundColor: currentTheme.glow, opacity: isFocused || isCover ? 0 : 1 }} className="absolute top-[-5%] left-[-5%] w-[40%] h-[40%] rounded-full blur-[100px] md:blur-[180px] transition-all duration-1000" />
+      <motion.div animate={{ backgroundColor: currentTheme.glow, opacity: isFocused || isCover ? 0 : 0.5 }} className="absolute bottom-[-5%] right-[-5%] w-[40%] h-[40%] rounded-full blur-[100px] md:blur-[180px] transition-all duration-1000" />
 
       <motion.div animate={{ opacity: isFocused ? 0 : 1 }} className="absolute top-0 left-0 w-full h-1 bg-white/5 z-[60]">
-        <motion.div className="h-full shadow-[0_0_20px_rgba(255,255,255,0.3)]" initial={{ width: 0 }} animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%`, backgroundColor: currentTheme.primary }} transition={{ duration: 0.5 }} />
+        <motion.div className="h-full shadow-[0_0_20px_rgba(255,255,255,0.2)]" initial={{ width: 0 }} animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%`, backgroundColor: currentTheme.primary }} transition={{ duration: 0.5 }} />
       </motion.div>
 
       {/* Navigation Controls */}
       <motion.div 
         animate={{ opacity: isFocused ? 0 : 1, y: isFocused ? 50 : 0 }} 
-        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 flex items-center gap-3 z-[100] bg-black/80 backdrop-blur-2xl px-4 py-2 rounded-2xl border border-white/20 shadow-2xl"
+        className={`fixed ${isCover ? 'top-8 right-8' : 'bottom-6 right-6 md:bottom-8 md:right-8'} flex items-center gap-3 z-[100] ${isCover ? 'bg-white border-zinc-200 shadow-2xl' : 'bg-black/60 border-white/10 shadow-2xl'} backdrop-blur-xl px-4 py-2 rounded-2xl border`}
       >
-        <button onClick={() => paginate(-1)} className={`p-2 rounded-xl hover:bg-white/10 transition-all ${currentSlide === 0 ? 'opacity-20 cursor-not-allowed' : 'opacity-100 active:scale-90'}`} disabled={currentSlide === 0}>
-          <ChevronLeft className="w-6 h-6" style={{ color: currentTheme.primary }} />
+        <button onClick={() => paginate(-1)} className={`p-2 rounded-xl transition-all ${isCover ? 'hover:bg-zinc-100' : 'hover:bg-white/10'} ${currentSlide === 0 ? 'opacity-20 cursor-not-allowed' : 'opacity-100 active:scale-90'}`} disabled={currentSlide === 0}>
+          <ChevronLeft className="w-6 h-6" style={{ color: isCover ? '#18181b' : currentTheme.primary }} />
         </button>
-        <div className="flex items-center gap-1 px-3 border-x border-white/10 mx-1 min-w-[60px] justify-center text-sm font-black tracking-tighter" style={{ color: currentTheme.primary }}>
+        <div className="flex items-center gap-1 px-3 border-x border-zinc-100 mx-1 min-w-[60px] justify-center text-sm font-black tracking-tighter" style={{ color: isCover ? '#18181b' : currentTheme.primary }}>
           {String(currentSlide + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
         </div>
-        <button onClick={() => paginate(1)} className={`p-2 rounded-xl hover:bg-white/10 transition-all ${currentSlide === slides.length - 1 ? 'opacity-20 cursor-not-allowed' : 'opacity-100 active:scale-90'}`} disabled={currentSlide === slides.length - 1}>
-          <ChevronRight className="w-6 h-6" style={{ color: currentTheme.primary }} />
+        <button onClick={() => paginate(1)} className={`p-2 rounded-xl transition-all ${isCover ? 'hover:bg-zinc-100' : 'hover:bg-white/10'} ${currentSlide === slides.length - 1 ? 'opacity-20 cursor-not-allowed' : 'opacity-100 active:scale-90'}`} disabled={currentSlide === slides.length - 1}>
+          <ChevronRight className="w-6 h-6" style={{ color: isCover ? '#18181b' : currentTheme.primary }} />
         </button>
       </motion.div>
 
       <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div key={currentSlide} custom={direction} initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }} transition={{ duration: 0.3 }}
           drag="x" dragConstraints={{ left: 0, right: 0 }} onDragEnd={(e, { offset }) => { if (offset.x < -50) paginate(1); else if (offset.x > 50) paginate(-1); }}
-          className="flex-1 w-full flex items-center justify-center p-4 md:p-8 lg:p-12 min-h-0 z-10"
+          className={`flex-1 w-full flex items-center justify-center ${isCover ? 'p-0' : 'p-4 md:p-8 lg:p-12'} min-h-0 z-10`}
         >
           <div className="w-full h-full max-h-full flex items-center justify-center overflow-hidden">
             <InteractiveSlide slide={slides[currentSlide]} theme={currentTheme} isFocused={isFocused} setIsFocused={setIsFocused} />
@@ -83,8 +98,8 @@ export default function Presentation() {
         </motion.div>
       </AnimatePresence>
 
-      <motion.div animate={{ opacity: isFocused ? 0 : 1 }} className="absolute bottom-6 left-10 text-[10px] uppercase tracking-[0.3em] text-white/10 font-bold hidden md:block">
-        Marketing Sensorial <span className="mx-2" style={{ color: currentTheme.primary }}>|</span> Mozambique 2026
+      <motion.div animate={{ opacity: isFocused || isCover ? 0 : 1 }} className="absolute bottom-6 left-10 text-[10px] uppercase tracking-[0.3em] text-white/10 font-bold hidden md:block">
+        Marketing Sensorial <span className="mx-2" style={{ color: currentTheme.primary }}>|</span> 2026
       </motion.div>
     </main>
   );
@@ -100,12 +115,12 @@ function InteractiveSlide({ slide, theme, isFocused, setIsFocused }: any) {
         <div className={`w-full h-full relative flex items-center justify-center p-0 overflow-hidden rounded-2xl md:rounded-[40px] border shadow-2xl bg-black transition-all duration-700 ${isFocused ? 'border-transparent rounded-none scale-100' : ''}`} style={{ borderColor: isFocused ? 'transparent' : `${theme.primary}20` }}>
           <motion.div animate={{ opacity: isFocused ? 0 : 1 }} className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40 z-20 pointer-events-none" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
-            <motion.div animate={{ scale: isFocused ? 1 : 1.05, opacity: isFocused ? 1 : 0.6 }} className="absolute inset-0">
+            <motion.div animate={{ scale: isFocused ? 1 : 1.05, opacity: isFocused ? 1 : 0.8 }} className="absolute inset-0">
                {slide.mediaUrl ? (isVideo ? <video src={slide.mediaUrl} autoPlay muted={!isFocused} loop={!isFocused} playsInline className="w-full h-full object-contain pointer-events-none" /> : <img src={slide.mediaUrl} className="w-full h-full object-contain pointer-events-none" alt="" />) : <div className="w-full h-full bg-zinc-900" />}
             </motion.div>
             {isVideo && !isFocused && (
               <button onClick={(e) => { e.stopPropagation(); setIsFocused(true); }} className="absolute inset-0 w-full h-full z-40 flex items-center justify-center group/btn">
-                <motion.div whileHover={{ scale: 1.1 }} className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl group-hover/btn:bg-white/20 transition-all"><Play className="w-10 h-10 text-white fill-white ml-1" /></motion.div>
+                <motion.div whileHover={{ scale: 1.1 }} className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl group-hover/btn:bg-white/40 transition-all"><Play className="w-10 h-10 text-white fill-white ml-1" /></motion.div>
               </button>
             )}
             {isFocused && (
@@ -121,21 +136,55 @@ function InteractiveSlide({ slide, theme, isFocused, setIsFocused }: any) {
       );
     case 'cover':
       return (
-        <div className="text-center max-w-4xl space-y-6 md:space-y-8 py-8 px-6 overflow-y-auto max-h-full">
-          <motion.div initial={{ y: 30, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-            <div className="inline-block p-3 md:p-4 rounded-2xl mb-6 shadow-2xl" style={{ background: `linear-gradient(to bottom right, ${theme.primary}, #fff)` }}><GraduationCap className="w-10 h-10 md:w-16 md:h-16 text-black" /></div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1] mb-6 uppercase">
-              {slide.title.split(':').map((part: string, i: number) => (<span key={i} style={{ color: i === 1 ? theme.primary : 'white' }} className={i === 1 ? "block mt-1" : ""}>{part}</span>))}
-            </h1>
-            <div className="h-1 w-20 md:w-24 mx-auto mb-8 rounded-full" style={{ backgroundColor: theme.primary }} />
-            <p className="text-base md:text-lg lg:text-xl text-gray-400 font-light max-w-2xl mx-auto italic leading-relaxed">{slide.subtitle}</p>
-          </motion.div>
+        <div className="w-full h-full relative flex flex-col items-center overflow-hidden bg-black">
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+             <img src="assets/imagem-da-capa.jpg" alt="Capa" className="absolute inset-0 w-full h-full object-cover opacity-100" />
+             <div className="absolute inset-0 bg-black/5" />
+             <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+          </div>
+          
+          {/* Header Title Section - Lowered by ~25px (pt-24) */}
+          <div className="relative z-10 w-full pt-20 md:pt-24 lg:pt-28 px-10 text-center flex flex-col items-center">
+            <motion.div initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} className="max-w-6xl">
+              <h1 className="text-xl md:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight uppercase drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]">
+                {slide.title}
+              </h1>
+            </motion.div>
+          </div>
+
+          {/* Footer Cards - Bottom Aligned */}
+          <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end gap-6 z-20">
+            <motion.div initial={{ x: -30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.5 }}
+              className="bg-white p-6 rounded-2xl border-l-[6px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-left max-w-sm" style={{ borderColor: theme.primary }}>
+              <p className="text-[9px] font-black uppercase tracking-widest text-zinc-400 mb-3 border-b border-zinc-50 pb-1">Discentes</p>
+              <div className="space-y-1.5">
+                <p className="text-[11px] font-bold text-zinc-900 uppercase tracking-tight">Esmeralda Eduardo Machalela — 2026236</p>
+                <p className="text-[11px] font-bold text-zinc-900 uppercase tracking-tight">Ivone Lucas Nhamitambo prometido — 2026032</p>
+                <p className="text-[11px] font-bold text-zinc-900 uppercase tracking-tight">Suraya I. Manafe Abdul Remane — 2022508</p>
+                <p className="text-[11px] font-bold text-zinc-900 uppercase tracking-tight">Iazide Amine Aboobacar — 2022505</p>
+                <p className="text-[11px] font-bold text-zinc-900 uppercase tracking-tight">Kebe Diawara</p>
+              </div>
+            </motion.div>
+
+            <motion.div initial={{ x: 30, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.5 }}
+              className="bg-white p-6 rounded-2xl border-r-[6px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-right max-w-xs" style={{ borderColor: theme.primary }}>
+              <p className="text-[9px] font-black uppercase tracking-widest text-zinc-400 mb-3 border-b border-zinc-50 pb-1">Docente e Regência</p>
+              <div className="space-y-1.5">
+                <p className="text-sm font-black text-zinc-900 uppercase leading-none">Mestre Obadias</p>
+                <p className="text-[10px] font-bold text-zinc-500 italic">Fundamentos de Marketing</p>
+                <div className="pt-3 mt-1">
+                  <p className="text-[10px] font-bold text-zinc-900 uppercase tracking-tighter leading-tight">Comunicação e Gestão Empresarial</p>
+                  <p className="text-[9px] font-medium text-zinc-400 uppercase tracking-widest mt-0.5">1º Semestre — Pós Laboral</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       );
     case 'section':
       return (
         <div className="text-center space-y-6 max-w-4xl">
-          <div className="w-20 h-20 md:w-24 md:h-24 bg-white/5 border rounded-full mx-auto flex items-center justify-center mb-4" style={{ borderColor: `${theme.primary}20` }}><Icon className="w-10 h-10 md:w-12 md:h-12" style={{ color: theme.primary }} /></div>
+          <div className="w-20 h-20 md:w-24 md:h-24 bg-white/5 border border-white/10 rounded-full mx-auto flex items-center justify-center mb-4" style={{ borderColor: `${theme.primary}40` }}><Icon className="w-10 h-10 md:w-12 md:h-12" style={{ color: theme.primary }} /></div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter italic leading-tight">{slide.title}</h2>
           <p className="text-base md:text-xl lg:text-2xl font-light max-w-3xl mx-auto" style={{ color: theme.primary }}>{slide.subtitle}</p>
         </div>
@@ -184,24 +233,23 @@ function InteractiveSlide({ slide, theme, isFocused, setIsFocused }: any) {
       return (
         <div className="w-full max-w-5xl space-y-8 md:space-y-12 py-4 overflow-y-auto max-h-full px-4">
           <div className="text-center space-y-2">
-             <span className="font-black uppercase tracking-[0.5em] text-[10px]" style={{ color: theme.primary }}>Síntese de Investigação</span>
+             <span className="font-black uppercase tracking-[0.5em] text-[10px]" style={{ color: theme.primary }}>Síntese Estratégica</span>
              <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter italic">{slide.title}</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
             {[
               { title: 'Âmbito Internacional', content: slide.content?.[0], icon: Globe2, themeColor: '#00D2FF' },
-              { title: 'Âmbito Nacional', content: slide.content?.[1], icon: BarChart3, themeColor: '#D32F2F' }
+              { title: 'Âmbito Nacional', content: slide.content?.[1], icon: BarChart3, themeColor: '#F97316' }
             ].map((box, i) => (
               <motion.div 
                 key={i}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: i * 0.2 }}
-                className="bg-white/5 backdrop-blur-xl p-8 md:p-10 rounded-[40px] border border-white/10 hover:border-opacity-50 transition-all group"
-                style={{ borderColor: `${box.themeColor}40` }}
+                className="bg-white/5 backdrop-blur-xl p-8 md:p-10 rounded-[40px] border border-white/10 hover:border-opacity-50 transition-all group shadow-2xl"
               >
                 <box.icon className="w-10 h-10 mb-6" style={{ color: box.themeColor }} />
-                <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter">{box.title}</h3>
+                <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter text-white">{box.title}</h3>
                 <p className="text-lg text-gray-400 leading-relaxed italic">{box.content?.split(':')[1]}</p>
                 <div className="mt-8 h-1 w-16" style={{ backgroundColor: box.themeColor }} />
               </motion.div>
@@ -212,16 +260,19 @@ function InteractiveSlide({ slide, theme, isFocused, setIsFocused }: any) {
 
     case 'closing':
       return (
-        <div className="text-center space-y-12 relative py-8 overflow-hidden px-6">
+        <div className="text-center space-y-12 relative py-8 overflow-hidden px-6 h-full flex flex-col items-center justify-center">
           <motion.h2 
-            animate={{ opacity: [0.05, 0.1, 0.05] }}
+            animate={{ opacity: [0.03, 0.05, 0.03] }}
             transition={{ repeat: Infinity, duration: 4 }}
-            className="text-6xl md:text-[12rem] font-black text-white/5 uppercase leading-none absolute inset-0 flex items-center justify-center pointer-events-none tracking-tighter"
+            className="text-6xl md:text-[12rem] font-black text-white uppercase leading-none absolute inset-0 flex items-center justify-center pointer-events-none tracking-tighter"
           >
             SENSORIAL
           </motion.h2>
-          <div className="relative z-10 space-y-8">
-            <h2 className="text-6xl md:text-9xl font-black italic tracking-tighter uppercase leading-none" style={{ color: theme.primary }}>Obrigado!</h2>
+          <div className="relative z-10 space-y-10">
+            <div className="inline-block p-4 bg-white rounded-3xl shadow-2xl mb-6">
+              <img src="assets/iscim-transparent-logo.png" alt="ISCIM" className="h-16 md:h-24 w-auto" />
+            </div>
+            <h2 className="text-6xl md:text-9xl font-black italic tracking-tighter uppercase leading-none" style={{ color: theme.primary }}>Muito Obrigado!</h2>
             <h3 className="text-2xl md:text-4xl font-light text-white max-w-4xl mx-auto leading-tight italic">
               {slide.subtitle}
             </h3>

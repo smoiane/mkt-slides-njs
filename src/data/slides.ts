@@ -15,23 +15,22 @@ export const slides: SlideData[] = [
   {
     id: 1,
     type: 'cover',
-    title: 'Marketing Sensorial: A Ciência de Sentir as Marcas',
-    subtitle: 'Porque é que compramos com o coração e não com a razão?',
-    imageAlt: 'Mosaico dos 5 sentidos e marcas icónicas',
-    mediaUrl: 'assets/2m-web-banner-tugueda.jpg'
+    title: 'Marketing Sensorial: Uma Abordagem Multissensorial para a Conexão com o Consumidor',
+    subtitle: 'Fundamentos de Marketing',
+    imageAlt: 'Marketing Sensorial: A Ciência de Sentir as Marcas',
+    mediaUrl: 'assets/imagem-da-capa.jpg'
   },
   {
     id: 2,
     type: 'content',
-    category: 'Para começar',
+    category: 'Glossário',
     title: 'O que precisamos de saber?',
     content: [
-      '**Marketing Sensorial:** É usar cheiros, sons e cores para "falar" com o cliente.',
-      '**Sinestesia:** É quando um sentido activa outro (ex: ver uma imagem e sentir frio).',
-      '**Branding:** É como construímos a personalidade de uma marca.',
-      '**Experiência:** É o que o cliente sente e recorda da marca.'
+      '**O que é Marketing?** É o processo de identificar, antecipar e satisfazer as necessidades e desejos do consumidor através da criação e entrega de valor.',
+      '**O que é Sensorial?** Refere-se à percepção do mundo através dos nossos sentidos (visão, audição, olfacto, tacto e paladar), que transformam estímulos externos em experiências internas.',
+      '**Marketing Sensorial:** É a união estratégica destes conceitos; utiliza estímulos sensoriais para criar uma conexão emocional profunda entre a marca e o consumidor.'
     ],
-    imageAlt: 'Conceitos base de forma simples'
+    imageAlt: 'Definições Fundamentais'
   },
   {
     id: 3,
@@ -49,19 +48,6 @@ export const slides: SlideData[] = [
   {
     id: 4,
     type: 'content',
-    category: 'O Problema',
-    title: 'Porque é que muitas marcas falham?',
-    content: [
-      '**O Problema:** Muitas marcas tornam-se "cinzentas" e iguais a todas as outras.',
-      '**O Erro:** Tentar convencer o cliente apenas com lógica e preços baixos.',
-      '**A Solução:** Activar os sentidos para criar uma ligação que dura no tempo.'
-    ],
-    justification: 'Se o cliente não sente nada, ele não volta.',
-    imageAlt: 'Marcas invisíveis no mercado'
-  },
-  {
-    id: 5,
-    type: 'content',
     category: 'Roteiro',
     title: 'O que vamos ver hoje?',
     content: [
@@ -75,14 +61,14 @@ export const slides: SlideData[] = [
 
   /* --- I. VISÃO --- */
   {
-    id: 6,
+    id: 5,
     type: 'section',
     title: 'I. VISÃO: O que os olhos vêem...',
     subtitle: 'Como a luz e as cores decidem o valor do que compramos.',
     imageAlt: 'A magia das cores'
   },
   {
-    id: 7,
+    id: 6,
     type: 'content',
     category: 'Visão: A Teoria',
     title: 'Como as cores "falam" connosco?',
@@ -95,7 +81,7 @@ export const slides: SlideData[] = [
     imageAlt: 'Cromatologia aplicada'
   },
   {
-    id: 8,
+    id: 7,
     type: 'media',
     category: 'Visão: Caso Apple',
     title: 'O Segredo da Apple',
@@ -103,7 +89,7 @@ export const slides: SlideData[] = [
     mediaUrl: 'assets/how-apple-builds-its-stores.mp4'
   },
   {
-    id: 9,
+    id: 8,
     type: 'content',
     category: 'Visão: Justificação',
     title: 'Porque é que a Apple usa vidro e luz?',
@@ -111,7 +97,7 @@ export const slides: SlideData[] = [
     imageAlt: 'Análise Apple'
   },
   {
-    id: 10,
+    id: 9,
     type: 'media',
     category: 'Visão: Caso Tiffany',
     title: 'A Magia do Azul Tiffany',
@@ -119,7 +105,7 @@ export const slides: SlideData[] = [
     mediaUrl: 'assets/tiffany-blue-box-hd.jfif'
   },
   {
-    id: 11,
+    id: 10,
     type: 'content',
     category: 'Visão: Justificação',
     title: 'Uma cor que vale milhões!',
@@ -359,38 +345,25 @@ export const slides: SlideData[] = [
     imageAlt: 'Análise Coca'
   },
 
-  /* --- CONCLUSÃO --- */
+  /* --- CONCLUSÃO E SOLUÇÃO --- */
   {
     id: 38,
     type: 'content',
-    category: 'O Futuro',
-    title: 'O que vem a seguir?',
+    category: 'Visão Estratégica',
+    title: 'Porque é que muitas marcas falham?',
     content: [
-      '**Phygital:** É misturar o físico com o digital.',
-      '**Ética:** As marcas devem persuadir, mas nunca enganar o consumidor.',
-      '**Conclusão:** No futuro, as marcas que não se fizerem sentir, serão invisíveis.'
+      '**O Erro Comum:** Tentar convencer o cliente apenas com lógica e preços baixos.',
+      '**A Falha:** Tornar a marca "cinzenta" e igual a todas as outras.',
+      '**A Solução Final:** Activar os sentidos para criar uma ligação emocional que o preço não consegue quebrar.'
     ],
-    imageAlt: 'Marketing futurista',
-    mediaUrl: 'assets/2m-web-banner-tugueda.jpg'
+    justification: 'Se o cliente não sente nada, ele não tem motivo para voltar.',
+    imageAlt: 'Marcas invisíveis no mercado'
   },
   {
     id: 39,
-    type: 'matrix',
-    category: 'Resumo Final',
-    title: 'Diferenças de Estratégia',
-    content: [
-      '**Marcas Internacionais:** Focam no Luxo e na Inovação.',
-      '**Marcas de Moçambique:** Focam na Identidade e na Cultura.'
-    ],
-    justification: 'A biologia é universal, a adaptação é local.',
-    imageAlt: 'Global vs Nacional'
-  },
-  {
-    id: 40,
     type: 'closing',
-    title: 'Muito Obrigado pela vossa Atenção!',
-    subtitle: 'E a vossa marca, como é que se faz sentir hoje?',
-    content: ['Autor: Estudante de Marketing', 'Instituto Técnico, 2026'],
+    title: 'Muito Obrigado!',
+    content: ['Grupo 2', 'Fundamentos de Marketing'],
     imageAlt: 'Encerramento'
   }
 ];
