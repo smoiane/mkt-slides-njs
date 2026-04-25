@@ -51,3 +51,42 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* REGRAS DE IMPRESSÃO PARA PDF */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    background: #000 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-slide {
+    height: 100vh !important;
+    width: 100vw !important;
+    page-break-after: always !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+}
+
+.print-only {
+  display: none;
+}
