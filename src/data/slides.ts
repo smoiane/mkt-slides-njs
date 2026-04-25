@@ -9,6 +9,7 @@ export interface SlideData {
   imageAlt: string;
   category?: string;
   mediaUrl?: string;
+  isHidden?: boolean;
 }
 
 export const slides: SlideData[] = [
@@ -92,6 +93,7 @@ export const slides: SlideData[] = [
     id: 8,
     type: 'content',
     category: 'Visão: Justificação',
+    isHidden: true,
     title: 'Porque é que a Apple usa vidro e luz?',
     justification: 'Ao usar transparência e muita luz branca, a Apple faz o cliente sentir que está num lugar futurista e honesto. O minimalismo retira a confusão e faz o produto brilhar como se fosse uma jóia.',
     imageAlt: 'Análise Apple'
@@ -108,6 +110,7 @@ export const slides: SlideData[] = [
     id: 10,
     type: 'content',
     category: 'Visão: Justificação',
+    isHidden: true,
     title: 'Uma cor que vale milhões!',
     justification: 'O azul da Tiffany é tão forte que o cérebro do cliente sente prazer antes mesmo de ver a jóia. A cor tornou-se o próprio símbolo de luxo e exclusividade mundial.',
     imageAlt: 'Análise Tiffany'
@@ -124,6 +127,7 @@ export const slides: SlideData[] = [
     id: 13,
     type: 'content',
     category: 'Visão: Justificação',
+    isHidden: true,
     title: 'Porque é que a 2M usa a nossa bandeira?',
     justification: 'A 2M não vende apenas cerveja, vende Moçambique. Ao usar as cores da bandeira, a marca faz o cliente sentir orgulho e patriotismo, tornando a escolha da cerveja uma questão de identidade nacional.',
     imageAlt: 'Análise 2M'
@@ -162,6 +166,7 @@ export const slides: SlideData[] = [
     id: 17,
     type: 'content',
     category: 'Audição: Justificação',
+    isHidden: true,
     title: '2 segundos que valem ouro!',
     justification: 'O som inicial da Netflix prepara o nosso cérebro para descansar e ver um filme. É um gatilho de prazer que nos faz focar no ecrã e esquecer o mundo exterior.',
     imageAlt: 'Análise Netflix'
@@ -178,6 +183,7 @@ export const slides: SlideData[] = [
     id: 19,
     type: 'content',
     category: 'Audição: Justificação',
+    isHidden: true,
     title: 'Porque é que a CDM apoia festivais?',
     justification: 'A CDM associa a 2M aos ritmos da Marrabenta e da música moderna moçambicana. Quando ouvimos a música da festa, o nosso cérebro lembra-se logo do prazer de partilhar uma cerveja com amigos.',
     imageAlt: 'Análise CDM Som'
@@ -216,6 +222,7 @@ export const slides: SlideData[] = [
     id: 23,
     type: 'content',
     category: 'Olfacto: Justificação',
+    isHidden: true,
     title: 'Como a Dunkin\' Donuts subiu as vendas?',
     justification: 'Na Coreia, a marca libertava cheiro a café quando o anúncio passava no rádio do autocarro. O resultado foi um aumento de 29% nas vendas, porque o cheiro "guiou" os passageiros até à loja mais próxima.',
     imageAlt: 'Análise Dunkin'
@@ -232,6 +239,7 @@ export const slides: SlideData[] = [
     id: 25,
     type: 'content',
     category: 'Olfacto: Justificação',
+    isHidden: true,
     title: 'Porque o cheiro a pão na entrada da LOKAL?',
     justification: 'A LOKAL é um supermercado completo, mas coloca a padaria à entrada estrategicamente. O cheiro a pão fresco abre o apetite do cliente, fazendo-o percorrer todos os corredores e comprar muito mais do que apenas pão.',
     imageAlt: 'Análise LOKAL'
@@ -270,6 +278,7 @@ export const slides: SlideData[] = [
     id: 29,
     type: 'content',
     category: 'Tacto: Justificação',
+    isHidden: true,
     title: 'Porque a Apple não usa plástico barato?',
     justification: 'O toque no alumínio frio e pesado faz o cliente sentir que tem nas mãos uma tecnologia de alta qualidade. Esse peso "justifica" o preço elevado que o cliente paga pelo dispositivo.',
     imageAlt: 'Análise Apple Tacto'
@@ -286,6 +295,7 @@ export const slides: SlideData[] = [
     id: 31,
     type: 'content',
     category: 'Tacto: Justificação',
+    isHidden: true,
     title: 'Como o couro justifica o preço?',
     justification: 'Ao tocar nos materiais de um Rolls Royce, o cliente sente imediatamente que o valor financeiro corresponde à excelência física. A textura confirma o luxo.',
     imageAlt: 'Análise Rolls Tacto'
@@ -313,7 +323,7 @@ export const slides: SlideData[] = [
     imageAlt: 'Impacto do paladar'
   },
   {
-    id: 34,
+    id: 43,
     type: 'media',
     category: 'Paladar: Caso IKEA',
     title: 'As Almôndegas da IKEA',
@@ -324,6 +334,7 @@ export const slides: SlideData[] = [
     id: 35,
     type: 'content',
     category: 'Paladar: Justificação',
+    isHidden: true,
     title: 'Comer para não desistir de comprar!',
     justification: 'A IKEA vende móveis, mas o seu restaurante é famoso mundialmente. A comida barata e saborosa faz com que as famílias passem o dia na loja sem ficarem cansadas ou com fome, comprando muito mais.',
     imageAlt: 'Análise IKEA'
@@ -340,6 +351,7 @@ export const slides: SlideData[] = [
     id: 37,
     type: 'content',
     category: 'Paladar: Justificação',
+    isHidden: true,
     title: 'O Sabor como Proteção de Marca',
     justification: 'A Coca-Cola protege a sua fórmula como o maior segredo do mundo. O sabor único é o que impede que o cliente mude para a concorrência, pois nada "sente" o mesmo paladar.',
     imageAlt: 'Análise Coca'

@@ -7,9 +7,10 @@ import {
   Globe2, Lightbulb, Eye, Volume2, Wind, Hand, Utensils,
   BookOpen, ShieldCheck, Target, Zap, Play, X
 } from 'lucide-react';
-import { slides, SlideData } from '../data/slides';
+import { slides as allSlides, SlideData } from '../data/slides';
 
 export default function Presentation() {
+  const slides = allSlides.filter(s => !s.isHidden);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
