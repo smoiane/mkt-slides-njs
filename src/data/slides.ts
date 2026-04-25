@@ -8,7 +8,7 @@ export interface SlideData {
   theory?: string;
   imageAlt: string;
   category?: string;
-  mediaUrl?: string; // Novo: Caminho do ficheiro ou Link YT
+  mediaUrl?: string;
 }
 
 export const slides: SlideData[] = [
@@ -18,7 +18,7 @@ export const slides: SlideData[] = [
     title: 'Marketing Sensorial: A Ciência de Sentir as Marcas',
     subtitle: 'Porque é que compramos com o coração e não com a razão?',
     imageAlt: 'Mosaico dos 5 sentidos e marcas icónicas',
-    mediaUrl: 'assets/capa_principal.jpg'
+    mediaUrl: 'assets/2m-web-banner-tugueda.jpg'
   },
   {
     id: 2,
@@ -31,8 +31,7 @@ export const slides: SlideData[] = [
       '**Branding:** É como construímos a personalidade de uma marca.',
       '**Experiência:** É o que o cliente sente e recorda da marca.'
     ],
-    imageAlt: 'Conceitos base de forma simples',
-    mediaUrl: 'assets/icones_sentidos.png'
+    imageAlt: 'Conceitos base de forma simples'
   },
   {
     id: 3,
@@ -45,8 +44,7 @@ export const slides: SlideData[] = [
       'As pessoas já não compram só por utilidade, compram por emoção.',
       'As marcas que não emocionam, acabam por ser esquecidas.'
     ],
-    imageAlt: 'O novo consumidor',
-    mediaUrl: 'assets/consumidor_moderno.jpg'
+    imageAlt: 'O novo consumidor'
   },
   {
     id: 4,
@@ -101,8 +99,8 @@ export const slides: SlideData[] = [
     type: 'media',
     category: 'Visão: Caso Apple',
     title: 'O Segredo da Apple',
-    imageAlt: 'A arquitectura transparente e minimalista das lojas Apple.',
-    mediaUrl: 'assets/apple_store_visao.jpg'
+    imageAlt: 'Vídeo: Como a Apple constrói as suas lojas icónicas.',
+    mediaUrl: 'assets/how-apple-builds-its-stores.mp4'
   },
   {
     id: 9,
@@ -118,7 +116,7 @@ export const slides: SlideData[] = [
     category: 'Visão: Caso Tiffany',
     title: 'A Magia do Azul Tiffany',
     imageAlt: 'A icónica caixa azul da Tiffany & Co.',
-    mediaUrl: 'assets/tiffany_blue_box.jpg'
+    mediaUrl: 'assets/tiffany-blue-box-hd.jfif'
   },
   {
     id: 11,
@@ -133,8 +131,8 @@ export const slides: SlideData[] = [
     type: 'media',
     category: 'Visão: Caso Nacional',
     title: '2M: As Cores do nosso País',
-    imageAlt: 'Publicidade da 2M usando as cores da bandeira de Moçambique.',
-    mediaUrl: 'assets/2m_nacional.jpg'
+    imageAlt: 'Vídeo: A 2M e a ligação com a identidade moçambicana.',
+    mediaUrl: 'assets/2m-feita-por-nos.mp4'
   },
   {
     id: 13,
@@ -171,8 +169,8 @@ export const slides: SlideData[] = [
     type: 'media',
     category: 'Audição: Caso Netflix',
     title: 'O "Tadum" da Netflix',
-    imageAlt: 'Logo da Netflix associado ao seu som icónico.',
-    mediaUrl: 'assets/netflix_tadum.mp4'
+    imageAlt: 'Vídeo: O som das histórias e a identidade auditiva da Netflix.',
+    mediaUrl: 'assets/netflix-sound-of-stories.mp4'
   },
   {
     id: 17,
@@ -187,8 +185,8 @@ export const slides: SlideData[] = [
     type: 'media',
     category: 'Audição: Caso CDM',
     title: 'O Som da Festa em Moçambique',
-    imageAlt: 'Festivais patrocinados pela CDM com música local.',
-    mediaUrl: 'assets/cdm_festivais.jpg'
+    imageAlt: 'Festivais patrocinados pela CDM com música local e celebração.',
+    mediaUrl: 'assets/maputo-party.jpg'
   },
   {
     id: 19,
@@ -225,8 +223,8 @@ export const slides: SlideData[] = [
     type: 'media',
     category: 'Olfacto: Caso Dunkin\'',
     title: 'O Cheiro que "pesca" o cliente',
-    imageAlt: 'Campanha de libertação de aroma de café em autocarros.',
-    mediaUrl: 'assets/dunkin_donuts.jpg'
+    imageAlt: 'Vídeo: A campanha Flavor Radio da Dunkin\' Donuts que usou o olfacto.',
+    mediaUrl: 'assets/dunkin-donuts-flavor-radio.mp4'
   },
   {
     id: 23,
@@ -240,17 +238,17 @@ export const slides: SlideData[] = [
     id: 24,
     type: 'media',
     category: 'Olfacto: Caso Nacional',
-    title: 'O Pão Quente de Maputo',
-    imageAlt: 'Supermercado LOCAL com padaria na entrada.',
-    mediaUrl: 'assets/pao_fresco_maputo.jpg'
+    title: 'O Cheiro do Sucesso na LOKAL',
+    imageAlt: 'A padaria da LOKAL em Maputo e a diversidade de produtos.',
+    mediaUrl: 'assets/padaria-da-lokal-em-maputo.jfif'
   },
   {
     id: 25,
     type: 'content',
     category: 'Olfacto: Justificação',
-    title: 'Porque o cheiro a pão na entrada?',
-    justification: 'O Supermercado LOCAL coloca a padaria à entrada para que o cheiro a pão fresco abra o apetite do cliente. Com fome, o cliente compra mais do que o planeado, aumentando o lucro do supermercado.',
-    imageAlt: 'Análise Local'
+    title: 'Porque o cheiro a pão na entrada da LOKAL?',
+    justification: 'A LOKAL é um supermercado completo, mas coloca a padaria à entrada estrategicamente. O cheiro a pão fresco abre o apetite do cliente, fazendo-o percorrer todos os corredores e comprar muito mais do que apenas pão.',
+    imageAlt: 'Análise LOKAL'
   },
 
   /* --- IV. TACTO --- */
@@ -279,8 +277,8 @@ export const slides: SlideData[] = [
     type: 'media',
     category: 'Tacto: Caso Apple',
     title: 'A Solidez do Alumínio',
-    imageAlt: 'Detalhe do acabamento metálico de um MacBook ou iPhone.',
-    mediaUrl: 'assets/apple_alumínio.jpg'
+    imageAlt: 'Vídeo: A filosofia de design da Apple foca em como o produto funciona e se sente.',
+    mediaUrl: 'assets/design-is-how-it-works-apple.mp4'
   },
   {
     id: 29,
@@ -293,18 +291,18 @@ export const slides: SlideData[] = [
   {
     id: 30,
     type: 'media',
-    category: 'Tacto: Caso Nacional',
-    title: 'A Garrafa 2M Gelada',
-    imageAlt: 'Close-up de uma garrafa de cerveja com condensação de gelo.',
-    mediaUrl: 'assets/2m_gelada_suada.jpg'
+    category: 'Tacto: Caso Rolls Royce',
+    title: 'O Luxo do Toque',
+    imageAlt: 'O interior sofisticado e as texturas nobres do Rolls Royce.',
+    mediaUrl: 'assets/rolls-royce-interior.webp'
   },
   {
     id: 31,
     type: 'content',
     category: 'Tacto: Justificação',
-    title: 'Como uma imagem nos faz sentir frio?',
-    justification: 'Em Moçambique, a visão activa o tacto. Ver as gotas de água numa garrafa de 2M faz o nosso corpo recordar a sensação de frescura, algo essencial para vender bebidas num clima tropical.',
-    imageAlt: 'Análise 2M Tacto'
+    title: 'Como o couro justifica o preço?',
+    justification: 'Ao tocar nos materiais de um Rolls Royce, o cliente sente imediatamente que o valor financeiro corresponde à excelência física. A textura confirma o luxo.',
+    imageAlt: 'Análise Rolls Tacto'
   },
 
   /* --- V. PALADAR --- */
@@ -333,8 +331,8 @@ export const slides: SlideData[] = [
     type: 'media',
     category: 'Paladar: Caso IKEA',
     title: 'As Almôndegas da IKEA',
-    imageAlt: 'Prato de almôndegas servido nos restaurantes IKEA.',
-    mediaUrl: 'assets/ikea_almondegas.jpg'
+    imageAlt: 'Vídeo: A história e o impacto das almôndegas no sucesso da IKEA.',
+    mediaUrl: 'assets/segredo-ikea-vender-mais.mp4'
   },
   {
     id: 35,
@@ -347,18 +345,18 @@ export const slides: SlideData[] = [
   {
     id: 36,
     type: 'media',
-    category: 'Paladar: Caso Nacional',
-    title: 'Laurentina: Orgulho Moçambicano',
-    imageAlt: 'A Medalha de Ouro da Laurentina Preta.',
-    mediaUrl: 'assets/laurentina_preta_gold.jpg'
+    category: 'Paladar: Caso Coca-Cola',
+    title: 'A Fórmula Secreta',
+    imageAlt: 'O sabor inconfundível que se tornou um padrão global.',
+    mediaUrl: 'assets/coca-cola.jpg'
   },
   {
     id: 37,
     type: 'content',
     category: 'Paladar: Justificação',
-    title: 'O sabor que o mundo premiou',
-    justification: 'A Laurentina Preta usa o seu sabor premiado internacionalmente para mostrar que o que é feito em Moçambique é de classe mundial. Isso gera um orgulho nacional que impede o cliente de mudar para marcas estrangeiras.',
-    imageAlt: 'Análise Laurentina'
+    title: 'O Sabor como Proteção de Marca',
+    justification: 'A Coca-Cola protege a sua fórmula como o maior segredo do mundo. O sabor único é o que impede que o cliente mude para a concorrência, pois nada "sente" o mesmo paladar.',
+    imageAlt: 'Análise Coca'
   },
 
   /* --- CONCLUSÃO --- */
@@ -368,12 +366,12 @@ export const slides: SlideData[] = [
     category: 'O Futuro',
     title: 'O que vem a seguir?',
     content: [
-      '**Phygital:** É misturar o físico com o digital (ex: sentir o cheiro via som ou imagem).',
+      '**Phygital:** É misturar o físico com o digital.',
       '**Ética:** As marcas devem persuadir, mas nunca enganar o consumidor.',
       '**Conclusão:** No futuro, as marcas que não se fizerem sentir, serão invisíveis.'
     ],
     imageAlt: 'Marketing futurista',
-    mediaUrl: 'assets/futuro_marketing.jpg'
+    mediaUrl: 'assets/2m-web-banner-tugueda.jpg'
   },
   {
     id: 39,
@@ -381,10 +379,10 @@ export const slides: SlideData[] = [
     category: 'Resumo Final',
     title: 'Diferenças de Estratégia',
     content: [
-      '**Marcas Internacionais:** Focam no Luxo, na Inovação e no Minimalismo.',
-      '**Marcas de Moçambique:** Focam na Identidade, na Cultura e no nosso Clima.'
+      '**Marcas Internacionais:** Focam no Luxo e na Inovação.',
+      '**Marcas de Moçambique:** Focam na Identidade e na Cultura.'
     ],
-    justification: 'A biologia é igual em todo o lado, mas o segredo é adaptar ao nosso contexto local.',
+    justification: 'A biologia é universal, a adaptação é local.',
     imageAlt: 'Global vs Nacional'
   },
   {
@@ -393,7 +391,6 @@ export const slides: SlideData[] = [
     title: 'Muito Obrigado pela vossa Atenção!',
     subtitle: 'E a vossa marca, como é que se faz sentir hoje?',
     content: ['Autor: Estudante de Marketing', 'Instituto Técnico, 2026'],
-    imageAlt: 'Encerramento',
-    mediaUrl: 'assets/encerramento.jpg'
+    imageAlt: 'Encerramento'
   }
 ];
